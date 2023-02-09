@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { Task } from './Task';
 
 export interface ITaskRepository {
@@ -10,7 +11,7 @@ export class TaskRepository implements ITaskRepository {
 
   async create(summary: string): Promise<Task> {
     const task = {
-      id: 'nope',
+      id: uuidv4(),
       summary,
       complete: false,
     };

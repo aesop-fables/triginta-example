@@ -15,8 +15,8 @@ interface CreateTaskRequest {
 export class CreateTaskEndpoint implements IHttpEndpoint<CreateTaskRequest, Task> {
   constructor(@inject(TaskServices.Repository) private readonly repository: ITaskRepository) {}
 
-  handle(message: CreateTaskRequest): Promise<Task> {
-    return this.repository.create(message.summary);
+  handle(request: CreateTaskRequest): Promise<Task> {
+    return this.repository.create(request.summary);
   }
 }
 
